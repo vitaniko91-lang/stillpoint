@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react'
 import { Nav } from './sections/Nav'
 import { Hero } from './sections/Hero'
 import { Patterns } from './sections/Patterns'
+import { Interlude } from './sections/Interlude'
 import { HowItFeels } from './sections/HowItFeels'
 import { Quiet } from './sections/Quiet'
 import { Ambience } from './sections/Ambience'
 import { Pricing } from './sections/Pricing'
 import { Footer } from './sections/Footer'
 import { Session } from './pages/Session'
+import { PageAtmosphere } from './components/PageAtmosphere'
 import { DEFAULT_PATTERN_ID } from './data/patterns'
 import { useLenis } from './hooks/useLenis'
 import { useReducedMotion } from './lib/useReducedMotion'
@@ -47,9 +49,11 @@ export default function App() {
 
   return (
     <>
+      <PageAtmosphere />
       <Nav onStartSession={goSession} />
       <Hero patternId={patternId} onPatternChange={setPatternId} onStartSession={goSession} />
       <Patterns value={patternId} onChange={setPatternId} />
+      <Interlude />
       <HowItFeels />
       <Quiet />
       <Ambience />

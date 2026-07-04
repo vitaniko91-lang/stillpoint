@@ -11,10 +11,31 @@ body {
   background: rgba(193, 95, 60, 0.16);
 }
 
-/* Honor reduced motion for the CSS keyframe idle drift (the JS orb handles its
+/* Slow, living drift for the warm atmosphere blobs — each blob uses a different
+   phase/duration so the light never repeats obviously. transform/opacity only. */
+@keyframes drift-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(5%, -4%, 0) scale(1.08); }
+}
+@keyframes drift-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); }
+  50% { transform: translate3d(-6%, 5%, 0) scale(0.96); }
+}
+@keyframes drift-c {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(3%, 6%, 0) scale(1.1); }
+}
+.drift-a { animation: drift-a 26s ease-in-out infinite; }
+.drift-b { animation: drift-b 32s ease-in-out infinite; }
+.drift-c { animation: drift-c 22s ease-in-out infinite; }
+
+/* Honor reduced motion for every CSS keyframe idle drift (the JS orb handles its
    own reduced-motion branch). A blunt global suppressor is avoided elsewhere. */
 @media (prefers-reduced-motion: reduce) {
-  .animate-haze {
+  .animate-haze,
+  .drift-a,
+  .drift-b,
+  .drift-c {
     animation: none;
   }
 }

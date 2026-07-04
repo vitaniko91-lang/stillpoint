@@ -6,6 +6,7 @@ import { PatternSelector } from '../components/PatternSelector'
 import { Container } from '../components/Container'
 import { LineReveal } from '../components/LineReveal'
 import { Ornament } from '../components/Ornament'
+import { Atmosphere } from '../components/Atmosphere'
 import { Reveal } from '../components/Reveal'
 import { useBreathCycle } from '../hooks/useBreathCycle'
 import { useReducedMotion } from '../lib/useReducedMotion'
@@ -52,7 +53,8 @@ export function Hero({ patternId, onPatternChange, onStartSession }: HeroProps) 
       ref={heroRef}
       className="relative overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28"
     >
-      <Container>
+      <Atmosphere />
+      <Container className="relative z-10">
         <div className="grid items-center gap-14 md:grid-cols-2 md:gap-8">
           {/* Left — the invitation */}
           <div className="order-2 md:order-1">

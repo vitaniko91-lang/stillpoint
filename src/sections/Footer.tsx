@@ -17,7 +17,10 @@ export function Footer({ onStartSession }: FooterProps) {
           </div>
 
           <div className="mt-14 flex w-full flex-col items-center gap-3 border-t border-line pt-8 text-sm text-ink-faint md:flex-row md:justify-between">
-            <span>Stillpoint — a calm concept, designed &amp; built by Vitalina Nikulina.</span>
+            <span>
+              Stillpoint — a calm concept, designed &amp; built by Vitalina Nikulina.
+              <span className="text-ink-faint/70"> Photography via Unsplash.</span>
+            </span>
             <UnderlineLink
               href="https://vitaniko91-lang.github.io"
               target="_blank"
