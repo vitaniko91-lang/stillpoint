@@ -11,15 +11,15 @@ export function Atmosphere({ className }: { className?: string }) {
     <div aria-hidden className={cx('pointer-events-none absolute inset-0 overflow-hidden', className)}>
       <div
         className="drift-a absolute -right-10 top-4 h-[26rem] w-[26rem] rounded-full blur-3xl"
-        style={{ background: 'radial-gradient(circle, rgba(216,138,106,0.55), transparent 66%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(216,138,106,0.26), transparent 68%)' }}
       />
       <div
         className="drift-b absolute right-24 top-40 h-[22rem] w-[22rem] rounded-full blur-3xl"
-        style={{ background: 'radial-gradient(circle, rgba(232,205,170,0.7), transparent 68%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(232,205,170,0.34), transparent 70%)' }}
       />
       <div
         className="drift-c absolute right-40 -top-8 h-[18rem] w-[18rem] rounded-full blur-3xl"
-        style={{ background: 'radial-gradient(circle, rgba(193,95,60,0.32), transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(193,95,60,0.15), transparent 72%)' }}
       />
     </div>
   )
