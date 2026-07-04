@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-paper-base text-ink font-sans antialiased;
+}
+
+/* Warm clay text selection — the single accent, applied lightly. */
+::selection {
+  background: rgba(193, 95, 60, 0.16);
+}
+
+/* Honor reduced motion for the CSS keyframe idle drift (the JS orb handles its
+   own reduced-motion branch). A blunt global suppressor is avoided elsewhere. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-haze {
+    animation: none;
+  }
+}
