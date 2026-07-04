@@ -12,7 +12,7 @@ interface Graph {
   stop: () => void
 }
 
-const TARGET_GAIN = 0.05
+const TARGET_GAIN = 0.13
 
 function buildGraph(): Graph {
   const Ctor: typeof AudioContext =
@@ -23,15 +23,17 @@ function buildGraph(): Graph {
   master.gain.value = 0 // fade in after connect
   master.connect(ctx.destination)
 
-  // Warmth: a low-pass smooths the oscillators into a pad.
+  // Warmth: a low-pass smooths the oscillators into a pad. Cutoff sits high
+  // enough that the chord actually reads on laptop speakers, not just subwoofers.
   const filter = ctx.createBiquadFilter()
   filter.type = 'lowpass'
-  filter.frequency.value = 620
+  filter.frequency.value = 950
   filter.Q.value = 0.4
   filter.connect(master)
 
-  // A calm chord: root, fifth, octave — slightly detuned for a living beat.
-  const freqs = [110, 164.81, 220]
+  // A calm chord: root, fifth, octave (A3 · E4 · A4) — a register you can
+  // actually hear, slightly detuned for a living beat.
+  const freqs = [220, 329.63, 440]
   const oscs = freqs.map((f, i) => {
     const osc = ctx.createOscillator()
     osc.type = i === 2 ? 'triangle' : 'sine'
@@ -49,7 +51,7 @@ function buildGraph(): Graph {
   const lfo = ctx.createOscillator()
   lfo.frequency.value = 0.06
   const lfoGain = ctx.createGain()
-  lfoGain.gain.value = 140
+  lfoGain.gain.value = 260
   lfo.connect(lfoGain)
   lfoGain.connect(filter.frequency)
   lfo.start()
