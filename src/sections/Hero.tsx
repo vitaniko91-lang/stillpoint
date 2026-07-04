@@ -5,6 +5,7 @@ import { Button } from '../components/Button'
 import { PatternSelector } from '../components/PatternSelector'
 import { Container } from '../components/Container'
 import { LineReveal } from '../components/LineReveal'
+import { Typewriter } from '../components/Typewriter'
 import { Ornament } from '../components/Ornament'
 import { Atmosphere } from '../components/Atmosphere'
 import { Reveal } from '../components/Reveal'
@@ -19,6 +20,9 @@ interface HeroProps {
 }
 
 const REST_SCALE = 0.82
+
+// The moments a single breath is for — rotated one at a time under the headline.
+const MOMENTS = ['the overwhelm.', 'a racing mind.', 'sleepless nights.', 'the in-between.']
 
 export function Hero({ patternId, onPatternChange, onStartSession }: HeroProps) {
   const [breathing, setBreathing] = useState(false)
@@ -76,7 +80,18 @@ export function Hero({ patternId, onPatternChange, onStartSession }: HeroProps) 
               ]}
             />
 
-            <Reveal delay={0.35}>
+            <Reveal delay={0.32}>
+              <Typewriter
+                words={MOMENTS}
+                reduced={reduced}
+                prefix={<span className="text-ink-soft">For </span>}
+                wordClassName="text-clay-deep"
+                srLine="For the overwhelm, a racing mind, sleepless nights, and the in-between."
+                className="mt-5 font-serif text-2xl text-ink md:text-[1.7rem]"
+              />
+            </Reveal>
+
+            <Reveal delay={0.42}>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-soft">
                 A guide you can use right here — no app, no account. Press{' '}
                 <span className="text-ink">Breathe</span> and follow along.

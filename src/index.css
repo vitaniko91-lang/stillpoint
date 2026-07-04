@@ -29,6 +29,23 @@ body {
 .drift-b { animation: drift-b 32s ease-in-out infinite; }
 .drift-c { animation: drift-c 22s ease-in-out infinite; }
 
+/* Soft typewriter caret — a slim clay bar that breathes rather than hard-blinks,
+   to match the page's calm. Sits inline after the rotating word. */
+.tw-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.02em;
+  margin-left: 3px;
+  vertical-align: -0.13em;
+  border-radius: 1px;
+  background: #9C4426; /* clay.deep */
+  animation: tw-blink 1.15s ease-in-out infinite;
+}
+@keyframes tw-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.12; }
+}
+
 /* Honor reduced motion for every CSS keyframe idle drift (the JS orb handles its
    own reduced-motion branch). A blunt global suppressor is avoided elsewhere. */
 @media (prefers-reduced-motion: reduce) {
@@ -37,5 +54,10 @@ body {
   .drift-b,
   .drift-c {
     animation: none;
+  }
+  /* Caret holds steady (no blink) when motion is reduced. */
+  .tw-caret {
+    animation: none;
+    opacity: 1;
   }
 }
