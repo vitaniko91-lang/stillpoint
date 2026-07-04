@@ -1,5 +1,6 @@
 import { Section } from '../components/Section'
 import { Reveal } from '../components/Reveal'
+import { LineReveal } from '../components/LineReveal'
 import { PATTERNS, type BreathPattern, type Phase } from '../data/patterns'
 import { cx } from '../lib/cx'
 
@@ -24,10 +25,12 @@ export function Patterns({ value, onChange }: PatternsProps) {
     <Section id="patterns" bg="sink">
       <Reveal>
         <p className="text-sm uppercase tracking-[0.22em] text-ink-faint">Three patterns</p>
-        <h2 className="mt-3 max-w-2xl font-serif text-3xl leading-tight text-ink md:text-4xl">
-          Pick a rhythm. The orb above follows along.
-        </h2>
       </Reveal>
+      <LineReveal
+        as="h2"
+        className="mt-3 max-w-2xl font-serif text-3xl leading-tight text-ink md:text-4xl"
+        lines={['Pick a rhythm.', 'The orb above follows along.']}
+      />
 
       <div className="mt-12 grid gap-5 md:grid-cols-3">
         {PATTERNS.map((p, i) => {

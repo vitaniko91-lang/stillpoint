@@ -1,5 +1,6 @@
 import { Section } from '../components/Section'
 import { Reveal } from '../components/Reveal'
+import { LineReveal } from '../components/LineReveal'
 import { Button } from '../components/Button'
 
 interface PricingProps {
@@ -12,9 +13,13 @@ export function Pricing({ onStartSession }: PricingProps) {
       <div className="mx-auto max-w-xl text-center">
         <Reveal>
           <p className="text-sm uppercase tracking-[0.22em] text-ink-faint">One honest plan</p>
-          <h2 className="mt-3 font-serif text-3xl leading-tight text-ink md:text-4xl">
-            Free. And it stays free.
-          </h2>
+        </Reveal>
+        <LineReveal
+          as="h2"
+          className="mt-3 font-serif text-3xl leading-tight text-ink md:text-4xl"
+          lines={['Free.', 'And it stays free.']}
+        />
+        <Reveal delay={0.15}>
           <p className="mt-5 leading-relaxed text-ink-soft">
             Every pattern, every session length, the ambience — all of it, no account. If
             Stillpoint gives you a calmer minute, that’s the whole point. Support it if it

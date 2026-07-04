@@ -1,5 +1,6 @@
 import { Section } from '../components/Section'
 import { Reveal } from '../components/Reveal'
+import { LineReveal } from '../components/LineReveal'
 
 const BEATS = [
   {
@@ -21,10 +22,12 @@ export function HowItFeels() {
     <Section id="how">
       <Reveal>
         <p className="text-sm uppercase tracking-[0.22em] text-ink-faint">How a session feels</p>
-        <h2 className="mt-3 max-w-2xl font-serif text-3xl leading-tight text-ink md:text-4xl">
-          Arrive, breathe, return — a little softer than you came.
-        </h2>
       </Reveal>
+      <LineReveal
+        as="h2"
+        className="mt-3 max-w-2xl font-serif text-3xl leading-tight text-ink md:text-4xl"
+        lines={['Arrive, breathe, return —', 'a little softer than you came.']}
+      />
 
       <div className="mt-12 grid gap-10 md:grid-cols-3">
         {BEATS.map((b, i) => (

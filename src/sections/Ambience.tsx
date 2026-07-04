@@ -1,5 +1,6 @@
 import { Section } from '../components/Section'
 import { Reveal } from '../components/Reveal'
+import { LineReveal } from '../components/LineReveal'
 import { AmbienceToggle } from '../components/AmbienceToggle'
 
 export function Ambience() {
@@ -8,9 +9,11 @@ export function Ambience() {
       <div className="grid items-center gap-10 md:grid-cols-2">
         <Reveal>
           <p className="text-sm uppercase tracking-[0.22em] text-ink-faint">Optional sound</p>
-          <h2 className="mt-3 font-serif text-3xl leading-tight text-ink md:text-4xl">
-            A warm hum, if you want one.
-          </h2>
+          <LineReveal
+            as="h2"
+            className="mt-3 font-serif text-3xl leading-tight text-ink md:text-4xl"
+            lines={['A warm hum,', 'if you want one.']}
+          />
           <p className="mt-5 max-w-md leading-relaxed text-ink-soft">
             A soft ambient pad — no track, no download. It’s generated live in your
             browser and drifts gently so it never loops or nags. Off by default; turn it

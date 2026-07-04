@@ -1,4 +1,5 @@
 import { Container } from '../components/Container'
+import { UnderlineLink } from '../components/UnderlineLink'
 
 interface NavProps {
   onStartSession: () => void
@@ -12,15 +13,15 @@ export function Nav({ onStartSession }: NavProps) {
           Stillpoint
         </a>
         <div className="flex items-center gap-6 text-sm text-ink-soft">
-          <a href="#patterns" className="hidden hover:text-clay-deep sm:inline">
+          <UnderlineLink href="#patterns" className="hidden sm:inline">
             Patterns
-          </a>
-          <a href="#how" className="hidden hover:text-clay-deep sm:inline">
+          </UnderlineLink>
+          <UnderlineLink href="#how" className="hidden sm:inline">
             How it feels
-          </a>
-          <a href="#pricing" className="hidden hover:text-clay-deep sm:inline">
+          </UnderlineLink>
+          <UnderlineLink href="#pricing" className="hidden sm:inline">
             Pricing
-          </a>
+          </UnderlineLink>
           <button
             onClick={onStartSession}
             className="rounded-full border border-line-strong px-4 py-1.5 text-ink transition-colors duration-200 hover:border-clay hover:text-clay-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper-base"
